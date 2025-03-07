@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SuperScopes Interpretation Demo</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body>
+
+  <header class="header">
+    <h1>SuperScopes</h1>
+    <p>An Interactive Demo for Amplified Interpretation</p>
+  </header>
+
+  <main class="main-container">
+    <section class="prompt-section">
+
+      <label for="prompt-input">Enter a prompt:</label>
+      <textarea id="prompt-input" rows="2" placeholder="Type a prompt..."></textarea>
+
+      <h3 class="slider-title">Layers to Inspect</h3>
+
+      <div class="slider">
+        <div class="progress"></div>
+      </div>
+      <div class="range-input">
+        <input type="range" class="range-min" min="0" max="39" value="5" step="1">
+        <input type="range" class="range-max" min="0" max="39" value="10" step="1">
+      </div>
+      <div class="values">
+        <span>Start: <span class="start-value">5</span></span>
+        <span>End: <span class="end-value">10</span></span>
+      </div>
+
+      <div class="toggle-container">
+        <label class="toggle-label" for="patch-target-toggle">Patch Target Layer:</label>
+        <label class="switch">
+          <input type="checkbox" id="patch-target-toggle">
+          <span class="slider-toggle round"></span>
+        </label>
+        <span id="patch-target-value">0</span>
+      </div>
+
+      <button id="interpret-btn">Interpret</button>
+    </section>
+
+    <section class="results-section">
+      <!-- Mode toggle for "Show Only Best" / "Show All" -->
+      <div class="mode-toggle-container" id="mode-toggle-container" style="display: none;">
+        <label class="mode-label" for="mode-toggle">Mode:</label>
+        <label class="switch">
+          <input type="checkbox" id="mode-toggle">
+          <span class="slider-toggle round"></span>
+        </label>
+        <span id="mode-value">Show Only Best</span>
+      </div>
+
+      <div id="results-container">
+        <!-- tokens + tables appear here -->
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© 2025, SuperScopes Project</p>
+  </footer>
+
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
